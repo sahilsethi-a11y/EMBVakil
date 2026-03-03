@@ -1,0 +1,30 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Mutual Non-Disclosure Agreement ("Agreement") is entered into on February 4, 2026, by and between Alpha Analytics, Inc. ("Disclosing Party") and Beacon Retail Group LLC ("Receiving Party").
+
+1. Purpose
+The parties intend to discuss a potential business relationship regarding analytics software and implementation services.
+
+2. Confidential Information
+Receiving Party shall protect Confidential Information for a period of one (1) year from disclosure. Confidential Information includes technical data, pricing, customer data, and product plans.
+
+3. Use Restrictions
+Receiving Party may use Confidential Information solely for the Purpose and for internal evaluation.
+
+4. Governing Law and Venue
+This Agreement shall be governed by the laws of England and Wales. The parties submit exclusively to the courts of London, England.
+
+5. Liability
+Receiving Party acknowledges that it shall be liable for any and all damages, losses, claims, and expenses arising out of or related to this Agreement, with no limitation of liability.
+
+6. Indemnification
+Receiving Party agrees to indemnify, defend, and hold harmless Disclosing Party and its affiliates from any third-party claims, losses, liabilities, and costs arising from Receiving Party's activities under this Agreement.
+
+7. Assignment
+Disclosing Party may assign this Agreement, in whole or in part, without consent from Receiving Party.
+
+8. Intellectual Property
+All intellectual property conceived, reduced to practice, or developed in connection with discussions under this Agreement shall belong to Disclosing Party. Each party may use ideas and feedback shared in meetings without restriction.
+
+9. Term
+This Agreement remains effective for two (2) years unless earlier terminated in writing.

@@ -1,0 +1,43 @@
+name: Default Company Playbook
+rules:
+  - name: Governing law / jurisdiction not preferred
+    risk: Governing law or venue in an unfavorable jurisdiction can increase dispute cost and unpredictability.
+    severity: med
+    check_guidance: Flag clauses that require non-preferred governing law or exclusive venue outside Delaware/New York/California.
+    preferred_position: Governing law in Delaware, New York, or California, with mutually reasonable venue.
+    fallback_language: This Agreement is governed by the laws of Delaware, and any action may be brought in state or federal courts located in Wilmington, Delaware.
+
+  - name: Unlimited liability
+    risk: No liability cap creates uncapped exposure.
+    severity: high
+    check_guidance: Flag if liability is unlimited or excludes a cap for broad categories unrelated to fraud/willful misconduct.
+    preferred_position: Liability capped at fees paid in prior 12 months, with narrow carve-outs.
+    fallback_language: Except for fraud, willful misconduct, or breach of confidentiality, each party's aggregate liability will not exceed fees paid or payable in the 12 months before the claim.
+
+  - name: One-way indemnity
+    risk: One-sided indemnity can force one party to absorb asymmetric risk.
+    severity: high
+    check_guidance: Flag if only one party indemnifies for broad claims and no reciprocal obligation exists.
+    preferred_position: Mutual indemnity with balanced scope and standard defense controls.
+    fallback_language: Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement.
+
+  - name: Assignment without consent
+    risk: Counterparty may transfer obligations to an unknown entity.
+    severity: med
+    check_guidance: Flag clauses allowing assignment without prior written consent, except merger/reorganization with notice.
+    preferred_position: No assignment without prior written consent, not unreasonably withheld.
+    fallback_language: Neither party may assign this Agreement without prior written consent of the other party, except to a successor in connection with merger or sale of substantially all assets with written notice.
+
+  - name: Confidentiality term too short
+    risk: A short confidentiality term may not protect long-lived sensitive information.
+    severity: med
+    check_guidance: Flag confidentiality terms shorter than 3 years for business confidential information.
+    preferred_position: At least 3 years for standard confidential information; trade secrets protected as long as they remain secret.
+    fallback_language: Confidentiality obligations survive for 5 years after termination, and trade secret obligations survive for as long as the information remains a trade secret.
+
+  - name: IP ownership ambiguous
+    risk: Ambiguous IP ownership can create disputes over deliverables and derivative works.
+    severity: high
+    check_guidance: Flag unclear ownership of pre-existing IP, deliverables, or feedback.
+    preferred_position: Each party retains pre-existing IP; deliverable ownership or license is explicit; feedback license is clear.
+    fallback_language: Each party retains ownership of its pre-existing intellectual property. Deliverables are licensed to Customer under a perpetual, worldwide, non-exclusive license unless otherwise stated.

@@ -1,0 +1,208 @@
+{
+  "02a93af53d311914cae113d8d2de22a28e3dc5f516d1f725cc4461e263a642fa": [],
+  "613dce5d399da6c7d01d9ce47c853bca63f7113adddc1ecd795beaa2ec5148d0": [],
+  "252f85c482a89fadb45338e372060fc5f577b1d77fcf941c2ff7e626723ef66f": [
+    {
+      "clause_id": "CL-002",
+      "issue": "Governing law and jurisdiction are England and Wales, not Delaware, New York, or California as required by the playbook.",
+      "severity": "med",
+      "why": "The agreement specifies the laws of England and Wales and English courts, which does not align with the preferred U.S. jurisdictions in the playbook.",
+      "excerpt": "The laws of England and Wales govern this agreement and its construction.",
+      "recommendation": "Request to change governing law and jurisdiction to Delaware, New York, or California, or add an alternative that meets mutual interests.",
+      "suggested_redline": "This Agreement is governed by the laws of Delaware, and any action may be brought in state or federal courts located in Wilmington, Delaware.",
+      "citations": [
+        "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+      ]
+    }
+  ],
+  "fae19f7bebe44c10b93ab976a130becc0fe85f3d7e6fe01d5b08f85f8b465510": [],
+  "888aba89b5655689e9395e74313ce7629737c865173ce06f9230fe43e1752594": [],
+  "f43fc91fc430eed93c9b13916b9f60987ed2c85ad23f1c2b3961e764491e081c": [],
+  "802542749d30993cf164bbe069adc48bddffed75293b18330b86c307dfa2a9db": [],
+  "5cee533da86fb05cc4b01e04546fb1f07adf76c4e2405c7e5d856df785a8ff9c": [],
+  "dd9b75b52773e6771210951ad3d520f3230f1aa0f0b4a3f701ece2fae0ad1f04": [],
+  "d621dee9a810f6ff409cf8c320ab1d2739b92956b042c0526fdf503d6e998437": [],
+  "3e4954dfc9221054d191232c8633cc6ecd8463286111be9dd4c694c621ad5ec7": [],
+  "542ce6b6db92df1ff2c2a1c1da6492ad950d29e5b96d5937d52eda9c161de280": [],
+  "52385b327fb4624b05474cfb542932d069c297febe25f649e65bef51c2beb623": [
+    {
+      "clause_id": "CL-001",
+      "issue": "Confidentiality term is not compliant with playbook minimum duration for business confidential information.",
+      "severity": "med",
+      "why": "Clause allows confidentiality obligations to end earlier than 3 years upon written notice from Disclosing Party, while playbook expects at least 3 years minimum duration for standard business confidential info.",
+      "excerpt": "duty to hold Confidential Information in confidence shall remain in effect until the Confidential Information no longer qualifies as a trade secret or until Disclosing Party sends...",
+      "recommendation": "Revise to ensure confidentiality period for standard confidential information is at least 3 years or longer as required for trade secrets, regardless of early release by Disclosing Party.",
+      "suggested_redline": "Confidentiality obligations survive for 5 years after termination, and trade secret obligations survive for as long as the information remains a trade secret.",
+      "citations": [
+        "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+      ]
+    }
+  ],
+  "0be5214ffd9285b47fd29876544035a9a6c21016c45c3e6bc4e52432833e606e": [],
+  "baf78ebe193deaba36877481c2da9e99b7e5d90e24042d1feb3f25a4464d4fdf": [],
+  "55ba7bf14a8575bf58b6317679577151d600512847ac90a9b897bb15833ed6c4": [],
+  "88d1b983e0e21446edbacb206d1f11dbcb72b2e27917e566fb52c10720fdadf7": [],
+  "a08df56e458c3627dc681a9714daf34b1bd82b4bc4bce80bbee8688f5680d699": [],
+  "593d978999dd5b77116cada43d1fdeaded6401c30317b46cb40a8cd435a5723b": [],
+  "1dbcf452a62f55ae8bcea8643e163b4ecc5b5bdc3ffec611906c2f689176aefa": [],
+  "93c8e7bcf9c7cbe464ee7173a86a3756312f885c8f189d1e9ced3bdcec6a9dcb": [],
+  "9386203cc1d00f9ddc3e1d1137a1e63df05eb9e86141f93ce13876fc21f33337": [],
+  "e2db8d25d55452985131095979acfa245cf3be4140ccfc97b41d38a676b4e0a1": [],
+  "c6df8ba4e8fe98744a42c37f0442a83869037a592ac588319f52a1700ed30531": [],
+  "224d7c43446664a09ae1e8b81d67a26ec5ff3fd8847fce47fcf2d8d02e859fc0": [],
+  "256be1f77a53eced4abff2be9ea67fe2923851b89d7b1308210a4e0734de8e70": [],
+  "237963f7963751f822b5bf01577eb441cc8abc53c3939401a89e70ce0ca5450e": [],
+  "62a2036fed52ededc32e2a47e466b1585ca77f066f4375d7ee7505fd423a9d0a": [],
+  "5c9c49fed1915d98d476225892b5002a1fbee944c5d4c5c6714e72b5728c8d55": [],
+  "eee85334cf98858f051105bfc346f68a8430590458d5135b43fbc2b0a34a295e": [],
+  "b2c2d960b0ce8568d5f151b909a78b9d09a52651ca75a35693cf9abac3338249": [],
+  "31f495da3ace714349961d0dd7576b134fb51d4f6f19b28ac67e6a3038e656cd": [],
+  "562f5294604485cf4767d1645022e7b8690b4341abe32df1d6c9ce210d1531c1": [],
+  "401676c8a9dfcde1544dc8b94cb91192a39ecdf8b1e5cb1ec17aaa6c16e85405": [],
+  "3d3c91bee47658567aa58c113d7067da9eb98f5b4c0a93185de0660b59a176c3": [],
+  "b680cf791e632cf1ea0a704993d5dda11849a4355afc251108dc229d88818718": [],
+  "b690b6d800eda99e4454fca129b875a81f6eaa100181ecf8ad2ab02633f8c14a": [],
+  "c669eef5f27ea8bfc0908c195a7c158d217787d3cf051b4965aa8918c9c3e28a": [],
+  "eaa7196937e77b57d9e997c354b56ca5f81860b3a89fc66c541d9b3021460725": [],
+  "1f4770f5770a0e752f8f0744215a45c8c41f0d8cec18eac35c1529b3d9f83508": [],
+  "996dcbdc8bb5cef9b1400161cb4a51814b2d8674cdaf14e3ddfc5a32ef9f2d72": [],
+  "e7372f7b52b15f16268f8d997fd6121976122e98ab9a097ee7657cb36c7543f2": [],
+  "2caaaca0395bbbf8b8e683c72659d0cbb1063fbd0f2a309d04e676853f39eade": [],
+  "30636ff3885a1cc8046e77abd89cf0f267283f0f8850d17c83ccf3667ff19715": [],
+  "5b1c3f087c97c09971f2f04ac90d908557e15381d2fa97c3d4bc02dc24f9b161": [],
+  "28886f81a02f233ba056a8ef70dba4d0677a660db6614eb5c73dd7604ae64404": [],
+  "f6c167aef0f7f583e570ad0628718ad70678519986ef1e77e900e2393cee69f6": [],
+  "48ab821a44bfebbe39d18ea18cb4c59b0d5d2fc0a30197a81796be675af81efd": [
+    {
+      "clause_id": "CL-037",
+      "issue": "Indemnity is one-way (only Recipient indemnifies Disclosing Party) and not mutual.",
+      "severity": "high",
+      "why": "Playbook requires mutual indemnity with balanced scope. This clause provides only a one-way indemnity, meaning asymmetric risk for Recipient.",
+      "excerpt": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times...",
+      "recommendation": "Revise to mutual indemnity so each party indemnifies the other for standard categories (e.g., negligence, willful misconduct, breach).",
+      "suggested_redline": "Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement.",
+      "citations": []
+    }
+  ],
+  "2451615fb54aa1b7803c878fb2d698abfd94192977b724ae3934d68282daa9f4": [
+    {
+      "clause_id": "CL-038",
+      "issue": "Indemnity provision is one-sided; only Recipient indemnifies Disclosing Party.",
+      "severity": "high",
+      "why": "Lacks mutual indemnity. Playbook requires reciprocal indemnity to ensure balanced risk distribution between parties.",
+      "excerpt": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times against all",
+      "recommendation": "Revise to require mutual indemnity covering each party's negligence, willful misconduct, and breach, with standard defense and settlement controls.",
+      "suggested_redline": "Each party shall indemnify, defend, and hold harmless the other party against all losses or liabilities arising out of or in connection with any third-party claim to the extent caused by that party's negligence, willful misconduct, or breach of this Agreement. The indemnifying party shall have the right to control the defense and settlement of such claims, provided that no settlement imposing obligations on the indemnified party may be made without its prior written consent (not to be unreasonably withheld).",
+      "citations": [
+        "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+        "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+      ]
+    }
+  ],
+  "e5999f09dab49211fc0787ad6dec4ecca6a33e5315c69f737a1e2c9b23a8a06e": [
+    {
+      "clause_id": "CL-039",
+      "issue": "Indemnity for open-ended costs (including legal costs) is not limited or mutual.",
+      "severity": "high",
+      "why": "Indemnity covers all direct liabilities, costs, expenses, damages, and legal costs, but is not mutual and no liability cap is referenced, posing risk of uncapped exposure.",
+      "excerpt": "direct liabilities, costs (including legal costs on an indemnity basis), expenses, damages and losses and",
+      "recommendation": "Narrow indemnity to a mutual structure with liability caps or carve-outs for fraud/willful misconduct; include a balance of legal cost recovery.",
+      "suggested_redline": "Each party shall indemnify, defend, and hold harmless the other against direct liabilities, costs, and losses from third-party claims caused by that party\u2019s negligence, willful misconduct, or breach of this Agreement, subject to agreed liability caps.",
+      "citations": [
+        "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+        "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+      ]
+    }
+  ],
+  "17a1f9c03b20fc845c82e52e4854e62d8e75e03a25bcaf3e6f7976071625a63b": [
+    {
+      "clause_id": "CL-040",
+      "issue": "Indemnity is not mutual and is open-ended as to costs, covering any breach by Recipient or its Representatives.",
+      "severity": "high",
+      "why": "Playbook requires mutual indemnity with narrow triggers. This clause gives only the Disclosing Party a right to uncapped indemnity from Recipient, but not vice versa.",
+      "excerpt": "any breach of this Agreement by the Recipient or its Representatives.",
+      "recommendation": "Revise for mutual and balanced indemnity (for both parties, for specific triggers only, not 'any breach') and subject to liability caps.",
+      "suggested_redline": "Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement, subject to standard liability caps.",
+      "citations": [
+        "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+        "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+        "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+      ]
+    }
+  ],
+  "2d622b1fac83d6b99e465fb4a545365100b7b96a18bc001477ab5621371c0232": [],
+  "611800e921661d7027e8b90784589aee8556d1dde7a86a1455d29a82ecbec1f6": [],
+  "dc0e1061a09f2d2c8af5c73ef49dc0b2f40f63a5e283dd2da5c2bfa98456a8da": [],
+  "46564f55cd3f7779865aca01dcff5ced635386539fce29a5e8e21a7461a3c965": [],
+  "9a7c3fdc0d6e2cd0ffed5a0f095c2f3af9715a2211d49869f8f15d5c865e11b3": [
+    {
+      "clause_id": "CL-045",
+      "issue": "Accrued rights and remedies preserved only for Disclosing Party, not mutual.",
+      "severity": "med",
+      "why": "Grants exclusive benefit to one party rather than both. Playbook expects mutual reservation of rights to accrued remedies.",
+      "excerpt": "Termination of this Agreement shall not affect any accrued rights or remedies to which the Disclosing Party is entitled.",
+      "recommendation": "Clarify that termination does not affect accrued rights or remedies of either party (not just Disclosing Party).",
+      "suggested_redline": "Termination of this Agreement shall not affect any accrued rights or remedies to which either party is entitled.",
+      "citations": [
+        "190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+        "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+        "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+      ]
+    }
+  ],
+  "36d36b2f295a81f9237c3eed4957d7762e0a7a732351b19924c4dbfe34b4cda4": [],
+  "f2d0e3bb36841abea144ffbd3d1769092370879d690dbc1d767a9893efbef409": [
+    {
+      "clause_id": "CL-047",
+      "issue": "Assignment is prohibited except as otherwise provided, but no allowance for assignment with consent.",
+      "severity": "med",
+      "why": "Playbook requires that assignment be allowed with prior written consent (not unreasonably withheld), and with exception for merger/sale with notice. This clause does not explicitly allow assignment upon consent or in a change-of-control event.",
+      "excerpt": "no party may assign, sub-contract or deal...under this Agreement...",
+      "recommendation": "Update to permit assignment with prior written consent and an exception for merger or sale of substantially all assets with notice, per company standard.",
+      "suggested_redline": "Neither party may assign this Agreement without prior written consent of the other party, except to a successor in connection with merger or sale of substantially all assets with written notice.",
+      "citations": [
+        "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+        "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx",
+        "b3c1460c0595_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+      ]
+    }
+  ],
+  "3fae6e77b16888380e183d65b2cfcce98fc03db020ef8ed9e17c3ace6395ccd3": [
+    {
+      "clause_id": "CL-048",
+      "issue": "Uncapped and one-sided liability for breach\u2014only applies to the Company/Individual, not ECC.",
+      "severity": "high",
+      "why": "Clause exposes the Company/Individual to uncapped liability for all losses suffered by ECC. Playbook requires mutual, capped liability with narrow carve-outs.",
+      "excerpt": "COMPANY or INDIVIDUAL / PERSON shall be legally liable... and compensate ECC against its loss...",
+      "recommendation": "Revise so liability is mutual, subject to a cap (fees paid in prior 12 months), with carve-outs for fraud, willful misconduct, breach of confidentiality.",
+      "suggested_redline": "Except for fraud, willful misconduct, or breach of confidentiality, each party's aggregate liability will not exceed fees paid or payable in the 12 months before the claim, and shall apply mutually to both parties.",
+      "citations": [
+        "190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+        "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+        "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+      ]
+    }
+  ],
+  "1194ba3d22551c415237906edcf8218e0f58040e070bd04e3aecdbbbc21097b5": [],
+  "4ff1063810a400b369665c85c1cb73db86f59c9769451800dad12f97708d6cda": [],
+  "1e8ee15f191120d493efddb375437dc6116163d53d5c44e42433aa2ae2298922": [],
+  "cbf8d3cc913a979342837aca47ddbdaa08a58f2f2b9915d263b1873bda4d23a2": [],
+  "cc0b17f509bcbcd62c83b6ee3b5223bb9e8dfec914e9cd5960cb1f9267706cbb": [],
+  "3721547714eb129467d160d462f5686103283e74874b543dfdb087a846bbcc56": [],
+  "77c5922f25dcfdc6f9c60961fb0dee17ca952eb0360bcfb4941ad38335b01eae": [],
+  "c8c098b5095a6498d97c0a0a6dc8e9ee4431cd1d1cf700068d1da5f523ffc274": [],
+  "45bf7895a593a3546d429e113e8fe7689316a0c2de39e0758f5a85516063821a": [],
+  "00c0d7af9c4ba006d217eadcbf6169250929ffe7f125e6df818f7d964f1abb85": [],
+  "df0ac7743d8cff66bc6fab653f33f2612e5429d3a57a5cfa6d79ea216ee5af85": [],
+  "2737d461a935ed400a4f01c4f188f468f74c3c3280423d45012b838e717dbe8a": [],
+  "7282721c941d04acdafd17667c4027dbec51556b9afeb092ad7521b15dc85607": [],
+  "51fcbb087627aae2846006b5a64ffd0d02f04c24d64075457ad9a9a50767d9b4": [],
+  "6c878af2beb6f44c3191a56a1fe27276bee5feba6bc2ec01ff7d558fc2949187": [],
+  "6d447a5e51fd3318e7fd0f5129dda53d02c2522933678d403b7399e89b70010e": [],
+  "d8848be910418d8a3c8f186237075ae25916b5152628bf1f4135aae6dd1c028c": []
+}

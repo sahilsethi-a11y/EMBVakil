@@ -1,0 +1,1 @@
+"""Law Agent example package."""
