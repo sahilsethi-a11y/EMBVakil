@@ -16,10 +16,32 @@ async function apiRequest(path, options = {}, token = "") {
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
-  const response = await fetch(path, { ...options, headers });
-  const data = await response.json();
+  let response;
+  try {
+    response = await fetch(path, { ...options, headers });
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    throw new Error(`Network request failed for ${path}: ${reason}`);
+  }
+
+  const contentType = response.headers.get("content-type") || "";
+  let data = {};
+  if (contentType.includes("application/json")) {
+    try {
+      data = await response.json();
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      throw new Error(`Invalid JSON response from ${path}: ${reason}`);
+    }
+  } else {
+    const text = await response.text();
+    data = { detail: text || `Unexpected response type from ${path}.` };
+  }
+
   if (!response.ok) {
-    throw new Error(data.detail || "Request failed.");
+    throw new Error(
+      data.detail || `Request failed for ${path} with status ${response.status}.`
+    );
   }
   return data;
 }
