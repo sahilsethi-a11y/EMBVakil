@@ -310,17 +310,19 @@ function App() {
       setStatus({ message: "Review started.", kind: "ok" });
       pollReviewStatus(startData.job_id);
     } catch (error) {
-      setStatus({ message: String(error), kind: "err" });
+      const errorMessage = String(error);
+      setStatus({ message: errorMessage, kind: "err" });
       setReviewJob((prev) => ({
         ...prev,
+        open: false,
         status: "failed",
-        error: String(error),
+        error: errorMessage,
         events: [
           ...prev.events,
           {
             stage: "error",
             clause_id: "",
-            message: String(error),
+            message: errorMessage,
           },
         ],
       }));
@@ -357,12 +359,42 @@ function App() {
           break;
         }
         if (data.status === "failed") {
-          setStatus({ message: `Review failed: ${data.error}`, kind: "err" });
+          const backendError = data.error || "Review failed with unknown error.";
+          setStatus({ message: `Review failed: ${backendError}`, kind: "err" });
+          setReviewJob((prev) => ({
+            ...prev,
+            open: false,
+            status: "failed",
+            error: backendError,
+            events: [
+              ...(prev.events || []),
+              {
+                stage: "error",
+                clause_id: "",
+                message: backendError,
+              },
+            ],
+          }));
           keepPolling = false;
           break;
         }
       } catch (error) {
-        setStatus({ message: String(error), kind: "err" });
+        const errorMessage = String(error);
+        setStatus({ message: errorMessage, kind: "err" });
+        setReviewJob((prev) => ({
+          ...prev,
+          open: false,
+          status: "failed",
+          error: errorMessage,
+          events: [
+            ...(prev.events || []),
+            {
+              stage: "error",
+              clause_id: "",
+              message: errorMessage,
+            },
+          ],
+        }));
         keepPolling = false;
         break;
       }
