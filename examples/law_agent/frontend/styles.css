@@ -156,11 +156,48 @@ textarea {
   gap: 10px;
 }
 
+.auth-card {
+  max-width: 480px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: #f9fbff;
+}
+
+.auth-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.auth-toggle button {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px 10px;
+  font: 600 13px "Sora", sans-serif;
+  cursor: pointer;
+}
+
+.auth-toggle button.active {
+  background: #0b5fff;
+  color: #fff;
+  border-color: #0b5fff;
+}
+
 .actions {
   margin-top: 12px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.review-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 button.primary,

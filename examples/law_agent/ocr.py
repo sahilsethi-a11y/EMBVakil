@@ -14,13 +14,21 @@ def extract_pdf_text_with_ocr_fallback(pdf_bytes: bytes, *, min_chars: int = 80)
 
     `pytesseract` also requires the Tesseract binary to be installed on the system.
     """
+    merged, _used_ocr = extract_pdf_text_with_ocr_diagnostics(pdf_bytes, min_chars=min_chars)
+    return merged
+
+
+def extract_pdf_text_with_ocr_diagnostics(
+    pdf_bytes: bytes, *, min_chars: int = 80
+) -> tuple[str, bool]:
+    """Extract text and return whether OCR fallback was used."""
     base_text = _extract_pdf_text_basic(pdf_bytes)
     if len(base_text.strip()) >= min_chars:
-        return base_text
+        return base_text, False
 
     ocr_text = _extract_pdf_text_ocr(pdf_bytes)
     merged = "\n\n".join(part for part in [base_text.strip(), ocr_text.strip()] if part)
-    return merged
+    return merged, True
 
 
 def _extract_pdf_text_basic(pdf_bytes: bytes) -> str:
@@ -38,12 +46,12 @@ def _extract_pdf_text_basic(pdf_bytes: bytes) -> str:
 def _extract_pdf_text_ocr(pdf_bytes: bytes) -> str:
     """OCR PDF pages when text-layer extraction is insufficient."""
     try:
-        import pypdfium2 as pdfium  # type: ignore[import-not-found]
+        import pypdfium2 as pdfium  # type: ignore[import-untyped]
     except ImportError as exc:  # pragma: no cover - dependency/env specific
         raise RuntimeError("OCR fallback requires pypdfium2 (`uv add pypdfium2`).") from exc
 
     try:
-        import pytesseract  # type: ignore[import-not-found]
+        import pytesseract  # type: ignore[import-untyped]
     except ImportError as exc:  # pragma: no cover - dependency/env specific
         raise RuntimeError("OCR fallback requires pytesseract (`uv add pytesseract`).") from exc
 

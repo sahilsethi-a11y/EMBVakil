@@ -52,6 +52,7 @@ function App() {
 
   const [signup, setSignup] = useState({ company: "", email: "", password: "" });
   const [login, setLogin] = useState({ email: "", password: "" });
+  const [authMode, setAuthMode] = useState("login");
 
   const [playbookText, setPlaybookText] = useState("");
   const [docs, setDocs] = useState([]);
@@ -114,18 +115,23 @@ function App() {
         body: JSON.stringify(login),
       });
       saveAuth(data);
-      setStatus({ message: "Signed in.", kind: "ok" });
+      await loadPlaybook(data.token);
+      await loadDocs(data.token);
+      await loadVectors(data.token);
+      setStatus({ message: "Signed in. Playbook, docs, and vectors loaded.", kind: "ok" });
       setActiveTab("rag");
     } catch (error) {
       setStatus({ message: String(error), kind: "err" });
     }
   }
 
-  async function loadPlaybook() {
+  async function loadPlaybook(authToken = token) {
     try {
-      const data = await apiRequest("/api/playbook", {}, token);
+      const data = await apiRequest("/api/playbook", {}, authToken);
       setPlaybookText(JSON.stringify(data.playbook, null, 2));
-      setStatus({ message: "Playbook loaded.", kind: "ok" });
+      if (authToken === token) {
+        setStatus({ message: "Playbook loaded.", kind: "ok" });
+      }
     } catch (error) {
       setStatus({ message: String(error), kind: "err" });
     }
@@ -148,11 +154,13 @@ function App() {
     }
   }
 
-  async function loadDocs() {
+  async function loadDocs(authToken = token) {
     try {
-      const data = await apiRequest("/api/rag/documents", {}, token);
+      const data = await apiRequest("/api/rag/documents", {}, authToken);
       setDocs(data.documents);
-      setStatus({ message: "Documents loaded.", kind: "ok" });
+      if (authToken === token) {
+        setStatus({ message: "Documents loaded.", kind: "ok" });
+      }
     } catch (error) {
       setStatus({ message: String(error), kind: "err" });
     }
@@ -217,12 +225,14 @@ function App() {
     }
   }
 
-  async function loadVectors() {
+  async function loadVectors(authToken = token) {
     try {
-      const data = await apiRequest("/api/rag/index", {}, token);
+      const data = await apiRequest("/api/rag/index", {}, authToken);
       setVectorRows(data.chunks);
       setVectorStats({ chunk_count: data.chunk_count, files: data.files });
-      setStatus({ message: "Vector index loaded.", kind: "ok" });
+      if (authToken === token) {
+        setStatus({ message: "Vector index loaded.", kind: "ok" });
+      }
     } catch (error) {
       setStatus({ message: String(error), kind: "err" });
     }
@@ -233,6 +243,20 @@ function App() {
       setStatus({ message: "Paste contract text or upload a file first.", kind: "err" });
       return;
     }
+    const startedAt = new Date().toLocaleTimeString();
+    setReviewJob({
+      open: true,
+      jobId: "",
+      status: "starting",
+      events: [
+        {
+          stage: "ui",
+          clause_id: "",
+          message: `Generate Risk Report clicked at ${startedAt}. Initializing review...`,
+        },
+      ],
+      error: "",
+    });
     try {
       let filePayload = {
         contract_filename: "",
@@ -270,17 +294,36 @@ function App() {
         },
         token
       );
-      setReviewJob({
-        open: true,
+      setReviewJob((prev) => ({
+        ...prev,
         jobId: startData.job_id,
         status: "queued",
-        events: [],
-        error: "",
-      });
+        events: [
+          ...prev.events,
+          {
+            stage: "queue",
+            clause_id: "",
+            message: `Review job created: ${startData.job_id}`,
+          },
+        ],
+      }));
       setStatus({ message: "Review started.", kind: "ok" });
       pollReviewStatus(startData.job_id);
     } catch (error) {
       setStatus({ message: String(error), kind: "err" });
+      setReviewJob((prev) => ({
+        ...prev,
+        status: "failed",
+        error: String(error),
+        events: [
+          ...prev.events,
+          {
+            stage: "error",
+            clause_id: "",
+            message: String(error),
+          },
+        ],
+      }));
     }
   }
 
@@ -289,12 +332,23 @@ function App() {
     while (keepPolling) {
       try {
         const data = await apiRequest(`/api/review/status/${jobId}`, {}, token);
-        setReviewJob((prev) => ({
-          ...prev,
-          status: data.status,
-          events: data.progress_events || [],
-          error: data.error || "",
-        }));
+        setReviewJob((prev) => {
+          const merged = [...(prev.events || []), ...(data.progress_events || [])];
+          const seen = new Set();
+          const deduped = [];
+          for (const event of merged) {
+            const key = `${event.stage || ""}|${event.clause_id || ""}|${event.message || ""}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            deduped.push(event);
+          }
+          return {
+            ...prev,
+            status: data.status,
+            events: deduped,
+            error: data.error || "",
+          };
+        });
 
         if (data.status === "completed") {
           setReviewResult(data.result);
@@ -322,8 +376,8 @@ function App() {
         <div className="brand">
           <img className="brand-logo" src="/ui/emb_global_logo.png" alt="EMB Global" />
           <div>
-          <h1>Law Agent Platform</h1>
-          <p className="sub">Multi-tenant contract review with local RAG and custom rule playbooks.</p>
+            <h1>EMB Vakil AI</h1>
+            <p className="sub">Multi-tenant contract review with local RAG and custom rule playbooks.</p>
           </div>
         </div>
         <div className="badge">{isAuthed ? `Tenant: ${tenantName}` : "Not signed in"}</div>
@@ -350,57 +404,74 @@ function App() {
         <div className="panel section">
           {activeTab === "auth" && (
             <>
-              <h3>Sign up / Login</h3>
-              <div className="row">
-                <form onSubmit={handleSignup}>
-                  <label>Company</label>
-                  <input
-                    value={signup.company}
-                    onChange={(e) => setSignup({ ...signup, company: e.target.value })}
-                    required
-                  />
-                  <label style={{ marginTop: "8px" }}>Email</label>
-                  <input
-                    type="email"
-                    value={signup.email}
-                    onChange={(e) => setSignup({ ...signup, email: e.target.value })}
-                    required
-                  />
-                  <label style={{ marginTop: "8px" }}>Password</label>
-                  <input
-                    type="password"
-                    value={signup.password}
-                    onChange={(e) => setSignup({ ...signup, password: e.target.value })}
-                    required
-                  />
-                  <div className="actions">
-                    <button className="primary" type="submit">
-                      Create account
-                    </button>
-                  </div>
-                </form>
+              <h3>Access Portal</h3>
+              <div className="auth-card">
+                <div className="auth-toggle">
+                  <button
+                    className={authMode === "login" ? "active" : ""}
+                    onClick={() => setAuthMode("login")}
+                  >
+                    Login
+                  </button>
+                  <button
+                    className={authMode === "signup" ? "active" : ""}
+                    onClick={() => setAuthMode("signup")}
+                  >
+                    Sign up
+                  </button>
+                </div>
 
-                <form onSubmit={handleLogin}>
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    value={login.email}
-                    onChange={(e) => setLogin({ ...login, email: e.target.value })}
-                    required
-                  />
-                  <label style={{ marginTop: "8px" }}>Password</label>
-                  <input
-                    type="password"
-                    value={login.password}
-                    onChange={(e) => setLogin({ ...login, password: e.target.value })}
-                    required
-                  />
-                  <div className="actions">
-                    <button className="primary" type="submit">
-                      Login
-                    </button>
-                  </div>
-                </form>
+                {authMode === "signup" ? (
+                  <form onSubmit={handleSignup}>
+                    <label>Company</label>
+                    <input
+                      value={signup.company}
+                      onChange={(e) => setSignup({ ...signup, company: e.target.value })}
+                      required
+                    />
+                    <label style={{ marginTop: "8px" }}>Email</label>
+                    <input
+                      type="email"
+                      value={signup.email}
+                      onChange={(e) => setSignup({ ...signup, email: e.target.value })}
+                      required
+                    />
+                    <label style={{ marginTop: "8px" }}>Password</label>
+                    <input
+                      type="password"
+                      value={signup.password}
+                      onChange={(e) => setSignup({ ...signup, password: e.target.value })}
+                      required
+                    />
+                    <div className="actions">
+                      <button className="primary" type="submit">
+                        Create account
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <form onSubmit={handleLogin}>
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      value={login.email}
+                      onChange={(e) => setLogin({ ...login, email: e.target.value })}
+                      required
+                    />
+                    <label style={{ marginTop: "8px" }}>Password</label>
+                    <input
+                      type="password"
+                      value={login.password}
+                      onChange={(e) => setLogin({ ...login, password: e.target.value })}
+                      required
+                    />
+                    <div className="actions">
+                      <button className="primary" type="submit">
+                        Login
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
             </>
           )}
@@ -462,7 +533,12 @@ function App() {
 
           {activeTab === "review" && (
             <>
-              <h3>Contract review</h3>
+              <div className="review-head">
+                <h3>Contract review</h3>
+                <button className="primary" onClick={runReview} disabled={!isAuthed}>
+                  Generate Risk Report
+                </button>
+              </div>
               <label>Upload contract file (.pdf, .txt, .md, .docx) or paste text</label>
               <input
                 type="file"
@@ -477,11 +553,6 @@ function App() {
                 onChange={(e) => setReviewInput(e.target.value)}
                 placeholder="Paste NDA/MSA text here..."
               />
-              <div className="actions">
-                <button className="primary" onClick={runReview} disabled={!isAuthed}>
-                  Run review
-                </button>
-              </div>
               {reviewResult && (
                 <>
                   <p className="small">
@@ -572,7 +643,7 @@ function App() {
             </>
           )}
 
-      <div className={statusClass}>{status.message}</div>
+          <div className={statusClass}>{status.message}</div>
         </div>
       </div>
 
@@ -583,11 +654,15 @@ function App() {
               <h3>Review Work In Progress</h3>
               <button
                 className="secondary"
+                disabled={reviewJob.status !== "completed"}
                 onClick={() => setReviewJob((prev) => ({ ...prev, open: false }))}
               >
                 Close
               </button>
             </div>
+            {reviewJob.status !== "completed" && (
+              <p className="small">This window stays open until the final report is generated.</p>
+            )}
             <p className="small">
               Job: {reviewJob.jobId || "n/a"} | Status: {reviewJob.status}
             </p>

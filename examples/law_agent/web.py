@@ -21,7 +21,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from .agents import LawReviewManager
-from .ocr import extract_pdf_text_with_ocr_fallback
+from .ocr import extract_pdf_text_with_ocr_diagnostics, extract_pdf_text_with_ocr_fallback
 from .playbook import load_playbook
 from .tenant_store import AuthSession, TenantStore
 
@@ -31,7 +31,7 @@ BASE_OUT_DIR = Path("out/law_agent_platform")
 DB_PATH = BASE_OUT_DIR / "law_agent_platform.db"
 UI_DIR = LAW_AGENT_DIR / "frontend"
 
-app = FastAPI(title="Law Agent Platform", version="0.2.0")
+app = FastAPI(title="EMB Vakil", version="0.2.0")
 app.mount("/ui", StaticFiles(directory=str(UI_DIR)), name="ui")
 store = TenantStore(DB_PATH)
 REVIEW_JOBS: dict[str, dict[str, Any]] = {}
@@ -180,6 +180,60 @@ def _extract_contract_text_from_upload(
             if joined:
                 paragraphs.append(joined)
         return "\n\n".join(paragraphs)
+
+    raise ValueError(f"Unsupported review file type: {suffix or 'unknown'}")
+
+
+def _extract_contract_text_from_upload_details(
+    *,
+    filename: str,
+    content_type: str,
+    base64_data: str,
+) -> tuple[str, bool]:
+    """Extract contract text and return whether OCR fallback was used."""
+    del content_type
+    cleaned_name = _slug_filename(filename)
+    suffix = Path(cleaned_name).suffix.lower()
+    if not base64_data.strip():
+        raise ValueError("Uploaded file content is empty.")
+
+    try:
+        file_bytes = base64.b64decode(base64_data)
+    except Exception as exc:
+        raise ValueError(f"Invalid file payload: {exc}") from exc
+
+    if suffix in {".txt", ".md"}:
+        try:
+            return file_bytes.decode("utf-8"), False
+        except UnicodeDecodeError as exc:
+            raise ValueError(f"Could not decode text file as UTF-8: {exc}") from exc
+
+    if suffix == ".pdf":
+        try:
+            return extract_pdf_text_with_ocr_diagnostics(file_bytes)
+        except RuntimeError as exc:
+            raise ValueError(str(exc)) from exc
+
+    if suffix == ".docx":
+        try:
+            with zipfile.ZipFile(BytesIO(file_bytes), "r") as archive:
+                xml_bytes = archive.read("word/document.xml")
+        except Exception as exc:
+            raise ValueError(f"Unable to parse DOCX file: {exc}") from exc
+
+        try:
+            root = ET.fromstring(xml_bytes)
+        except ET.ParseError as exc:
+            raise ValueError(f"DOCX XML parse failed: {exc}") from exc
+
+        namespace = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+        paragraphs: list[str] = []
+        for paragraph in root.findall(".//w:p", namespace):
+            texts = [node.text or "" for node in paragraph.findall(".//w:t", namespace)]
+            joined = "".join(texts).strip()
+            if joined:
+                paragraphs.append(joined)
+        return "\n\n".join(paragraphs), False
 
     raise ValueError(f"Unsupported review file type: {suffix or 'unknown'}")
 
@@ -449,32 +503,10 @@ async def start_review_contract(
     payload: ReviewRequest,
     auth: SessionDep,
 ) -> ReviewStartResponse:
-    contract_text = payload.contract_text.strip()
-    used_uploaded_file = False
-    if not contract_text and payload.contract_base64_data.strip():
-        used_uploaded_file = True
-        try:
-            contract_text = _extract_contract_text_from_upload(
-                filename=payload.contract_filename,
-                content_type=payload.contract_content_type,
-                base64_data=payload.contract_base64_data,
-            ).strip()
-        except ValueError as exc:
-            raise HTTPException(status_code=400, detail=str(exc)) from exc
-
-    if len(contract_text) < 80:
-        if used_uploaded_file:
-            raise HTTPException(
-                status_code=400,
-                detail=(
-                    "Could not extract enough text from the uploaded file. "
-                    "If this is a scanned/image PDF, OCR is required. "
-                    "Try a text-based PDF/DOCX/TXT, or paste the contract text directly."
-                ),
-            )
+    if not payload.contract_text.strip() and not payload.contract_base64_data.strip():
         raise HTTPException(
             status_code=400,
-            detail="Contract text must be at least 80 characters.",
+            detail="Paste contract text or upload a review file before starting.",
         )
 
     job_id = uuid4().hex
@@ -511,6 +543,48 @@ async def start_review_contract(
 
         try:
             REVIEW_JOBS[job_id]["status"] = "running"
+            contract_text = payload.contract_text.strip()
+            used_uploaded_file = False
+            used_ocr = False
+            if not contract_text and payload.contract_base64_data.strip():
+                used_uploaded_file = True
+                await on_progress(
+                    {
+                        "stage": "input_parse",
+                        "message": "Reading uploaded contract file.",
+                    }
+                )
+                contract_text, used_ocr = _extract_contract_text_from_upload_details(
+                    filename=payload.contract_filename,
+                    content_type=payload.contract_content_type,
+                    base64_data=payload.contract_base64_data,
+                )
+                contract_text = contract_text.strip()
+                await on_progress(
+                    {
+                        "stage": "input_parse",
+                        "message": (
+                            f"Extracted {len(contract_text)} characters from uploaded contract."
+                        ),
+                    }
+                )
+                if used_ocr:
+                    await on_progress(
+                        {
+                            "stage": "ocr",
+                            "message": "OCR fallback engaged for scanned/image PDF.",
+                        }
+                    )
+
+            if len(contract_text) < 80:
+                if used_uploaded_file:
+                    raise ValueError(
+                        "Could not extract enough text from the uploaded file. "
+                        "If this is a scanned/image PDF, OCR is required. "
+                        "Try a text-based PDF/DOCX/TXT, or paste the contract text directly."
+                    )
+                raise ValueError("Contract text must be at least 80 characters.")
+
             report, markdown, warnings = await manager.review_document_with_progress(
                 contract_text,
                 progress_callback=on_progress,
@@ -554,7 +628,7 @@ def datetime_run_id() -> str:
 
 def main() -> None:
     """Run the web platform server."""
-    parser = argparse.ArgumentParser(description="Law Agent web platform")
+    parser = argparse.ArgumentParser(description="EMB Vakil web platform")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8001)
     args = parser.parse_args()

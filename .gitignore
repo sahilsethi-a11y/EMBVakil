@@ -150,4 +150,8 @@ cython_debug/
 # Redis database files
 dump.rdb
 
-tmp/
+# Ignore GitHub workflow files in this clone
+.github/workflows/*.yml
+.github/workflows/*.yaml
+.github/workflows/tests.yml
+.github/workflows/update-docs.yml
