@@ -4,8 +4,12 @@ from __future__ import annotations
 
 from io import BytesIO
 
+OCR_FALLBACK_MIN_CHARS = 2000
 
-def extract_pdf_text_with_ocr_fallback(pdf_bytes: bytes, *, min_chars: int = 80) -> str:
+
+def extract_pdf_text_with_ocr_fallback(
+    pdf_bytes: bytes, *, min_chars: int = OCR_FALLBACK_MIN_CHARS
+) -> str:
     """Extract text from PDF bytes, falling back to OCR for scanned pages.
 
     The fallback uses optional dependencies:
@@ -19,7 +23,7 @@ def extract_pdf_text_with_ocr_fallback(pdf_bytes: bytes, *, min_chars: int = 80)
 
 
 def extract_pdf_text_with_ocr_diagnostics(
-    pdf_bytes: bytes, *, min_chars: int = 80
+    pdf_bytes: bytes, *, min_chars: int = OCR_FALLBACK_MIN_CHARS
 ) -> tuple[str, bool]:
     """Extract text and return whether OCR fallback was used."""
     base_text = _extract_pdf_text_basic(pdf_bytes)
