@@ -1,0 +1,599 @@
+{
+  "report": {
+    "doc_type": "nda",
+    "summary": "This NDA restricts use and disclosure of confidential information exchanged between Eagles Communication Consultancy and another party, for business evaluation or job execution purposes. Several risk issues are present, especially in the indemnity and liability clauses, which are one-sided and uncapped, exposing the counterparty to substantial risk. The review also flags assignment and accrued rights clauses as not sufficiently mutual or aligned with playbook standards. Improvements are recommended for mutuality and limitation of liability throughout.",
+    "overall_risk": "high",
+    "findings": [
+      {
+        "clause_id": "CL-037",
+        "issue": "Indemnity is one-way (only Recipient indemnifies Disclosing Party) and not mutual.",
+        "severity": "high",
+        "why": "Playbook requires mutual indemnity with balanced scope. This clause provides only a one-way indemnity, meaning asymmetric risk for Recipient.",
+        "excerpt": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times...",
+        "recommendation": "Revise to mutual indemnity so each party indemnifies the other for standard categories (e.g., negligence, willful misconduct, breach).",
+        "suggested_redline": "Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement.",
+        "citations": []
+      },
+      {
+        "clause_id": "CL-038",
+        "issue": "Indemnity provision is one-sided; only Recipient indemnifies Disclosing Party.",
+        "severity": "high",
+        "why": "Lacks mutual indemnity. Playbook requires reciprocal indemnity to ensure balanced risk distribution between parties.",
+        "excerpt": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times against all",
+        "recommendation": "Revise to require mutual indemnity covering each party's negligence, willful misconduct, and breach, with standard defense and settlement controls.",
+        "suggested_redline": "Each party shall indemnify, defend, and hold harmless the other party against all losses or liabilities arising out of or in connection with any third-party claim to the extent caused by that party's negligence, willful misconduct, or breach of this Agreement. The indemnifying party shall have the right to control the defense and settlement of such claims, provided that no settlement imposing obligations on the indemnified party may be made without its prior written consent (not to be unreasonably withheld).",
+        "citations": [
+          "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+          "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+          "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+        ]
+      },
+      {
+        "clause_id": "CL-039",
+        "issue": "Indemnity for open-ended costs (including legal costs) is not limited or mutual.",
+        "severity": "high",
+        "why": "Indemnity covers all direct liabilities, costs, expenses, damages, and legal costs, but is not mutual and no liability cap is referenced, posing risk of uncapped exposure.",
+        "excerpt": "direct liabilities, costs (including legal costs on an indemnity basis), expenses, damages and losses and",
+        "recommendation": "Narrow indemnity to a mutual structure with liability caps or carve-outs for fraud/willful misconduct; include a balance of legal cost recovery.",
+        "suggested_redline": "Each party shall indemnify, defend, and hold harmless the other against direct liabilities, costs, and losses from third-party claims caused by that party\u0019s negligence, willful misconduct, or breach of this Agreement, subject to agreed liability caps.",
+        "citations": [
+          "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+          "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+          "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+        ]
+      },
+      {
+        "clause_id": "CL-040",
+        "issue": "Indemnity is not mutual and is open-ended as to costs, covering any breach by Recipient or its Representatives.",
+        "severity": "high",
+        "why": "Playbook requires mutual indemnity with narrow triggers. This clause gives only the Disclosing Party a right to uncapped indemnity from Recipient, but not vice versa.",
+        "excerpt": "any breach of this Agreement by the Recipient or its Representatives.",
+        "recommendation": "Revise for mutual and balanced indemnity (for both parties, for specific triggers only, not 'any breach') and subject to liability caps.",
+        "suggested_redline": "Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement, subject to standard liability caps.",
+        "citations": [
+          "43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf",
+          "65b4db8e25f1_NDA_EMB_Convexicon.pdf",
+          "890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf"
+        ]
+      },
+      {
+        "clause_id": "CL-048",
+        "issue": "Uncapped and one-sided liability for breach\u0014only applies to the Company/Individual, not ECC.",
+        "severity": "high",
+        "why": "Clause exposes the Company/Individual to uncapped liability for all losses suffered by ECC. Playbook requires mutual, capped liability with narrow carve-outs.",
+        "excerpt": "COMPANY or INDIVIDUAL / PERSON shall be legally liable... and compensate ECC against its loss...",
+        "recommendation": "Revise so liability is mutual, subject to a cap (fees paid in prior 12 months), with carve-outs for fraud, willful misconduct, breach of confidentiality.",
+        "suggested_redline": "Except for fraud, willful misconduct, or breach of confidentiality, each party's aggregate liability will not exceed fees paid or payable in the 12 months before the claim, and shall apply mutually to both parties.",
+        "citations": [
+          "190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+          "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+          "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+        ]
+      },
+      {
+        "clause_id": "CL-045",
+        "issue": "Accrued rights and remedies preserved only for Disclosing Party, not mutual.",
+        "severity": "med",
+        "why": "Grants exclusive benefit to one party rather than both. Playbook expects mutual reservation of rights to accrued remedies.",
+        "excerpt": "Termination of this Agreement shall not affect any accrued rights or remedies to which the Disclosing Party is entitled.",
+        "recommendation": "Clarify that termination does not affect accrued rights or remedies of either party (not just Disclosing Party).",
+        "suggested_redline": "Termination of this Agreement shall not affect any accrued rights or remedies to which either party is entitled.",
+        "citations": [
+          "190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+          "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+          "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+        ]
+      },
+      {
+        "clause_id": "CL-047",
+        "issue": "Assignment is prohibited except as otherwise provided, but no allowance for assignment with consent.",
+        "severity": "med",
+        "why": "Playbook requires that assignment be allowed with prior written consent (not unreasonably withheld), and with exception for merger/sale with notice. This clause does not explicitly allow assignment upon consent or in a change-of-control event.",
+        "excerpt": "no party may assign, sub-contract or deal...under this Agreement...",
+        "recommendation": "Update to permit assignment with prior written consent and an exception for merger or sale of substantially all assets with notice, per company standard.",
+        "suggested_redline": "Neither party may assign this Agreement without prior written consent of the other party, except to a successor in connection with merger or sale of substantially all assets with written notice.",
+        "citations": [
+          "351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf",
+          "aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx",
+          "b3c1460c0595_NDA_EMB_Brainvire_-_with_BVI_comments.docx"
+        ]
+      }
+    ],
+    "assumptions": [
+      "Counterparty name and execution date are placeholders and not filled in.",
+      "ECC is a registered company in Abu Dhabi.",
+      "MAHMOUD SAYED AHMAD signs for ECC; the other party is generically referred to.",
+      "Input may contain concentrated personal data. Review output handling carefully."
+    ],
+    "missing_info_questions": [
+      "Are there any side letters or amendments not included in this text?",
+      "Is this agreement intended to be mutual or one-way for confidentiality and indemnity obligations?"
+    ]
+  },
+  "markdown": "# Law Agent Contract Review\n\n- **Document type:** `nda`\n- **Overall risk:** `high`\n- **Findings by severity:** high=5, med=2, low=0\n\n## Summary\n\nThis NDA restricts use and disclosure of confidential information exchanged between Eagles Communication Consultancy and another party, for business evaluation or job execution purposes. Several risk issues are present, especially in the indemnity and liability clauses, which are one-sided and uncapped, exposing the counterparty to substantial risk. The review also flags assignment and accrued rights clauses as not sufficiently mutual or aligned with playbook standards. Improvements are recommended for mutuality and limitation of liability throughout.\n\n## Findings\n\n- **CL-037 | HIGH | Indemnity is one-way (only Recipient indemnifies Disclosing Party) and not mutual.**\n  - Why: Playbook requires mutual indemnity with balanced scope. This clause provides only a one-way indemnity, meaning asymmetric risk for Recipient.\n  - Excerpt: `The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times...`\n  - Recommendation: Revise to mutual indemnity so each party indemnifies the other for standard categories (e.g., negligence, willful misconduct, breach).\n  - Suggested edit: Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement.\n- **CL-038 | HIGH | Indemnity provision is one-sided; only Recipient indemnifies Disclosing Party.**\n  - Why: Lacks mutual indemnity. Playbook requires reciprocal indemnity to ensure balanced risk distribution between parties.\n  - Excerpt: `The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times against all`\n  - Recommendation: Revise to require mutual indemnity covering each party's negligence, willful misconduct, and breach, with standard defense and settlement controls.\n  - Citations: 43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf, 65b4db8e25f1_NDA_EMB_Convexicon.pdf, 890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf\n  - Suggested edit: Each party shall indemnify, defend, and hold harmless the other party against all losses or liabilities arising out of or in connection with any third-party claim to the extent caused by that party's negligence, willful misconduct, or breach of this Agreement. The indemnifying party shall have the right to control the defense and settlement of such claims, provided that no settlement imposing obligations on the indemnified party may be made without its prior written consent (not to be unreasonably withheld).\n- **CL-039 | HIGH | Indemnity for open-ended costs (including legal costs) is not limited or mutual.**\n  - Why: Indemnity covers all direct liabilities, costs, expenses, damages, and legal costs, but is not mutual and no liability cap is referenced, posing risk of uncapped exposure.\n  - Excerpt: `direct liabilities, costs (including legal costs on an indemnity basis), expenses, damages and losses and`\n  - Recommendation: Narrow indemnity to a mutual structure with liability caps or carve-outs for fraud/willful misconduct; include a balance of legal cost recovery.\n  - Citations: 43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf, 65b4db8e25f1_NDA_EMB_Convexicon.pdf, 890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf\n  - Suggested edit: Each party shall indemnify, defend, and hold harmless the other against direct liabilities, costs, and losses from third-party claims caused by that party\u0019s negligence, willful misconduct, or breach of this Agreement, subject to agreed liability caps.\n- **CL-040 | HIGH | Indemnity is not mutual and is open-ended as to costs, covering any breach by Recipient or its Representatives.**\n  - Why: Playbook requires mutual indemnity with narrow triggers. This clause gives only the Disclosing Party a right to uncapped indemnity from Recipient, but not vice versa.\n  - Excerpt: `any breach of this Agreement by the Recipient or its Representatives.`\n  - Recommendation: Revise for mutual and balanced indemnity (for both parties, for specific triggers only, not 'any breach') and subject to liability caps.\n  - Citations: 43c8a86b416e_EMB_Global_Convox_-_NDA__1___1_.pdf, 65b4db8e25f1_NDA_EMB_Convexicon.pdf, 890cfb63a88f_EMB_Global_Convox_-_NDA__1___1_.pdf\n  - Suggested edit: Each party will indemnify, defend, and hold harmless the other party from third-party claims arising from its negligence, willful misconduct, or breach of this Agreement, subject to standard liability caps.\n- **CL-048 | HIGH | Uncapped and one-sided liability for breach\u0014only applies to the Company/Individual, not ECC.**\n  - Why: Clause exposes the Company/Individual to uncapped liability for all losses suffered by ECC. Playbook requires mutual, capped liability with narrow carve-outs.\n  - Excerpt: `COMPANY or INDIVIDUAL / PERSON shall be legally liable... and compensate ECC against its loss...`\n  - Recommendation: Revise so liability is mutual, subject to a cap (fees paid in prior 12 months), with carve-outs for fraud, willful misconduct, breach of confidentiality.\n  - Citations: 190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf, 351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf, aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx\n  - Suggested edit: Except for fraud, willful misconduct, or breach of confidentiality, each party's aggregate liability will not exceed fees paid or payable in the 12 months before the claim, and shall apply mutually to both parties.\n- **CL-045 | MED | Accrued rights and remedies preserved only for Disclosing Party, not mutual.**\n  - Why: Grants exclusive benefit to one party rather than both. Playbook expects mutual reservation of rights to accrued remedies.\n  - Excerpt: `Termination of this Agreement shall not affect any accrued rights or remedies to which the Disclosing Party is entitled.`\n  - Recommendation: Clarify that termination does not affect accrued rights or remedies of either party (not just Disclosing Party).\n  - Citations: 190fc965ae05_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf, 351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf, aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx\n  - Suggested edit: Termination of this Agreement shall not affect any accrued rights or remedies to which either party is entitled.\n- **CL-047 | MED | Assignment is prohibited except as otherwise provided, but no allowance for assignment with consent.**\n  - Why: Playbook requires that assignment be allowed with prior written consent (not unreasonably withheld), and with exception for merger/sale with notice. This clause does not explicitly allow assignment upon consent or in a change-of-control event.\n  - Excerpt: `no party may assign, sub-contract or deal...under this Agreement...`\n  - Recommendation: Update to permit assignment with prior written consent and an exception for merger or sale of substantially all assets with notice, per company standard.\n  - Citations: 351656a9d59d_Mutual_NDA_-_Girnar_Soft____EMB_Global.docx__1__signed__1_.pdf, aaf537eff8fb_NDA_EMB_Brainvire_-_with_BVI_comments.docx, b3c1460c0595_NDA_EMB_Brainvire_-_with_BVI_comments.docx\n  - Suggested edit: Neither party may assign this Agreement without prior written consent of the other party, except to a successor in connection with merger or sale of substantially all assets with written notice.\n\n## Assumptions\n\n- Counterparty name and execution date are placeholders and not filled in.\n- ECC is a registered company in Abu Dhabi.\n- MAHMOUD SAYED AHMAD signs for ECC; the other party is generically referred to.\n- Input may contain concentrated personal data. Review output handling carefully.\n\n## Missing Information Questions\n\n- Are there any side letters or amendments not included in this text?\n- Is this agreement intended to be mutual or one-way for confidentiality and indemnity obligations?\n\n## Disclaimer\n\nThis output is an AI-assisted review and is not legal advice.\n",
+  "warnings": [
+    "Input may contain concentrated personal data. Review output handling carefully."
+  ],
+  "clauses": [
+    {
+      "id": "CL-001",
+      "heading": "(Dp",
+      "text": "(Dp\nn EAGLES\nCOMMUNICATION ICT Solutions | Enterprise Solutions | Intelligent Technologies | Security and Systems Architecture",
+      "start_char": 0,
+      "end_char": 126
+    },
+    {
+      "id": "CL-002",
+      "heading": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | ",
+      "text": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | Outsourcing and Training",
+      "start_char": 128,
+      "end_char": 232
+    },
+    {
+      "id": "CL-003",
+      "heading": "Eee\u2019",
+      "text": "Eee\u2019",
+      "start_char": 234,
+      "end_char": 238
+    },
+    {
+      "id": "CL-004",
+      "heading": "NON-DISCLOSURE AGREEMENT",
+      "text": "NON-DISCLOSURE AGREEMENT",
+      "start_char": 240,
+      "end_char": 264
+    },
+    {
+      "id": "CL-005",
+      "heading": "Parties",
+      "text": "Parties",
+      "start_char": 266,
+      "end_char": 273
+    },
+    {
+      "id": "CL-006",
+      "heading": "This Non-Disclosure Agreement (\u201cAgreement\u201d), effective [DD] | [YYYY]",
+      "text": "This Non-Disclosure Agreement (\u201cAgreement\u201d), effective [DD] | [YYYY]",
+      "start_char": 275,
+      "end_char": 343
+    },
+    {
+      "id": "CL-007",
+      "heading": "(\u201cEffective Date\"), is entered into between EAGLES COMMUNICATION CONSULTANCY, of",
+      "text": "(\u201cEffective Date\"), is entered into between EAGLES COMMUNICATION CONSULTANCY, office at Abu Dhabi,",
+      "start_char": 345,
+      "end_char": 443
+    },
+    {
+      "id": "CL-008",
+      "heading": "UAE, a company registered in Abu Dhabi (hereinafter referred to as: \u201cECC\") and",
+      "text": "UAE, a company registered in Abu Dhabi (hereinafter referred to as: \u201cECC\") and",
+      "start_char": 445,
+      "end_char": 523
+    },
+    {
+      "id": "CL-009",
+      "heading": "as: \u201cCompany\u201d or \u201cINDIVIDUAL / PERSON\"). It is recognized that it may be necessa",
+      "text": "as: \u201cCompany\u201d or \u201cINDIVIDUAL / PERSON\"). It is recognized that it may be necessary or desirable to exchange\ninformation between ECC and Company for the purpose of evaluating a potential business relationship or for\nthe execution of a job. With respect to the information exchanged between the parties, the parties agree as\nfollows:\nAGREED TERMS\n1. DEFINITIONS AND INTERPRETATION\n1.1. The following definitions and rules of interpretation in this clause apply in this Agreement:\nAffiliate means a company or entity that, directly or indirectly, controls, is controlled by or is under\ncommon control of a party to this Agreement, where \u201ccontrol\u201d means direct or indirect ownership.\nConfidential Information means all information disclosed or made available (whether orally, in writing\nor in any other form), directly or indirectly, by the Disclosing Party or its Representatives to the Recipient\nand its Representatives either before or after the date of this Agreement, including but not limited to:\n(a) the fact that discussions and negotiations are taking place concerning the Purpose and the status of\nthose discussions and negotiations;\n(b) the existence and terms of this Agreement;\n(c) any information that would be regarded as confidential by a reasonable business person relating to:\n(i) the business, affairs, customers, clients, suppliers, plans, intentions, or market opportunities,\nand\n(ii) the operations, processes, product information, site-information, know-how, designs, trade\nsecrets or software; and\n(iii), any other commercial, financial, legal, technical and/or other information, including any devices,\ngraphics, systems, drawings, specifications, data, written information or information in other\ntangible form;\n(d) any information or analysis derived from the Disclosing Party or its Representatives to the Recipient\nand its Representatives including all notes, memos, reports, calculations, compilations, analyses,\nforecasts, conclusions, summaries or other material generated or produced partly or wholly from",
+      "start_char": 525,
+      "end_char": 2559
+    },
+    {
+      "id": "CL-010",
+      "heading": "any Information provided,",
+      "text": "any Information provided,",
+      "start_char": 2561,
+      "end_char": 2586
+    },
+    {
+      "id": "CL-011",
+      "heading": "Ecc Eagles Communication Consultancy | Toll-Free: 800 963 963 TelFax: +971 2 639",
+      "text": "Ecc Eagles Communication Consultancy | Toll-Free: 800 963 963 TelFax: +971 2 6393137 | P.O.Box:",
+      "start_char": 2588,
+      "end_char": 2683
+    },
+    {
+      "id": "CL-012",
+      "heading": "129957",
+      "text": "129957",
+      "start_char": 2685,
+      "end_char": 2691
+    },
+    {
+      "id": "CL-013",
+      "heading": "Abu Dhabi, UAE e-Mail: cs@ECC.ae | URL: www.ECC.ae www.ECC.tel | Google Maps: ww",
+      "text": "Abu Dhabi, UAE e-Mail: cs@ECC.ae | URL: www.ECC.ae www.ECC.tel | Google Maps: www.location.ECC.ae",
+      "start_char": 2693,
+      "end_char": 2790
+    },
+    {
+      "id": "CL-014",
+      "heading": "(Dp",
+      "text": "(Dp\nn EAGLES\nCOMMUNICATION ICT Solutions | Enterprise Solutions | Intelligent Technologies | Security and Systems Architecture",
+      "start_char": 2792,
+      "end_char": 2918
+    },
+    {
+      "id": "CL-015",
+      "heading": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | ",
+      "text": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | Outsourcing and Training",
+      "start_char": 2920,
+      "end_char": 3024
+    },
+    {
+      "id": "CL-016",
+      "heading": "but not including any information that:",
+      "text": "but not including any information that:",
+      "start_char": 3026,
+      "end_char": 3065
+    },
+    {
+      "id": "CL-017",
+      "heading": "(e) is or becomes generally available to the public (other than as a result of i",
+      "text": "(e) is or becomes generally available to the public (other than as a result of its disclosure by the Recipient\nor its Representatives in breach of this Agreement), (except that any compilation of otherwise public\ninformation in a form not publicly known shall nevertheless be treated as Confidential Information);\nor",
+      "start_char": 3067,
+      "end_char": 3383
+    },
+    {
+      "id": "CL-018",
+      "heading": "(f) that the Recipient can reasonably provide evidence that the information was ",
+      "text": "(f) that the Recipient can reasonably provide evidence that the information was available to the",
+      "start_char": 3385,
+      "end_char": 3481
+    },
+    {
+      "id": "CL-019",
+      "heading": "Recipient on a non-confidential basis prior to disclosure by the Disclosing Part",
+      "text": "Recipient on a non-confidential basis prior to disclosure by the Disclosing Party; or",
+      "start_char": 3483,
+      "end_char": 3568
+    },
+    {
+      "id": "CL-020",
+      "heading": "(g) that the Recipient can reasonably provide evidence that the information was,",
+      "text": "(g) that the Recipient can reasonably provide evidence that the information was, is or becomes available\nto the Recipient on a non-confidential basis from a person who, to the Recipient's knowledge, is not\nbound by a confidentiality agreement with the Disclosing Party or otherwise prohibited from\ndisclosing the information to the Recipient; or",
+      "start_char": 3570,
+      "end_char": 3915
+    },
+    {
+      "id": "CL-021",
+      "heading": "(hi",
+      "text": "(hi",
+      "start_char": 3917,
+      "end_char": 3920
+    },
+    {
+      "id": "CL-022",
+      "heading": "was lawfully in the possession of the Recipient before the information was discl",
+      "text": "was lawfully in the possession of the Recipient before the information was disclosed to it by the\nDisclosing Party as evidenced by written records; or\n(i) the parties agree in writing is not confidential or may be disclosed; or",
+      "start_char": 3922,
+      "end_char": 4149
+    },
+    {
+      "id": "CL-023",
+      "heading": "(j) is developed by or for the Recipient independently of the information disclo",
+      "text": "(j) is developed by or for the Recipient independently of the information disclosed by the Disclosing",
+      "start_char": 4151,
+      "end_char": 4252
+    },
+    {
+      "id": "CL-024",
+      "heading": "Party as evidenced by written records;",
+      "text": "Party as evidenced by written records;\nPurpose means the Purpose of this Agreement, which is the disclosure of Confidential Information by",
+      "start_char": 4254,
+      "end_char": 4392
+    },
+    {
+      "id": "CL-025",
+      "heading": "the Disclosing Party through any tender/request for information, request for quo",
+      "text": "the Disclosing Party through any tender/request for information, request for quotation, request for",
+      "start_char": 4394,
+      "end_char": 4493
+    },
+    {
+      "id": "CL-026",
+      "heading": "proposal, meeting and/or in any other similar manner in order to allow the Recip",
+      "text": "proposal, meeting and/or in any other similar manner in order to allow the Recipient to evaluate\nwhether it wishes to enter into potential business opportunities with the Disclosing Party.\nRepresentatives means Affiliates, member of board of directors, employees, agents, officers,\nprofessional advisors, consultants, Sub Contractors and suppliers of the Recipient or the Disclosing\nParty as the case may be.\n1.2 All headings in this Agreement are for ease of reference only and shall not affect the interpretation of\nthis Agreement.\n1.3. A person includes an individual, company, corporation, firm, partnership or unincorporated body\n(whether or not having separate legal personality) and that person's legal and personal representatives,",
+      "start_char": 4495,
+      "end_char": 5234
+    },
+    {
+      "id": "CL-027",
+      "heading": "successors and permitted assigns.",
+      "text": "successors and permitted assigns.",
+      "start_char": 5236,
+      "end_char": 5269
+    },
+    {
+      "id": "CL-028",
+      "heading": "1.4 Any obligation in this Agreement on a person not to do something includes an",
+      "text": "1.4 Any obligation in this Agreement on a person not to do something includes an obligation not to agree or\nallow that thing to be done.",
+      "start_char": 5271,
+      "end_char": 5407
+    },
+    {
+      "id": "CL-029",
+      "heading": "2. OBLIGATIONS OF THE RECIPIENT",
+      "text": "2. OBLIGATIONS OF THE RECIPIENT",
+      "start_char": 5409,
+      "end_char": 5440
+    },
+    {
+      "id": "CL-030",
+      "heading": "2.1. The Recipient shall keep the Disclosing Party's Confidential Information co",
+      "text": "2.1. The Recipient shall keep the Disclosing Party's Confidential Information confidential and, except with\nthe prior written consent of the Disclosing Party, shall, and shall procure that its Representatives shall:\n(a) not use or exploit the Confidential Information in any way except for the Purpose; or\n(b) not disclose or make available the Confidential Information in whole or in part to any third party,",
+      "start_char": 5442,
+      "end_char": 5851
+    },
+    {
+      "id": "CL-031",
+      "heading": "except as expressly permitted by this Agreement; or",
+      "text": "except as expressly permitted by this Agreement; or",
+      "start_char": 5853,
+      "end_char": 5904
+    },
+    {
+      "id": "CL-032",
+      "heading": "fz",
+      "text": "fz\nFee. ECC | Eagles Communication Consultancy | Toll-Free: 800 963 963 | TelFax: +971 2 6393137 | P.O.Box: 129957\nAbu Dhabi, UAE e-Mail: cs@ECC.ae | URL: www.ECC.ae www.ECC.tel | Google Maps: www.location.ECC.ae",
+      "start_char": 5906,
+      "end_char": 6118
+    },
+    {
+      "id": "CL-033",
+      "heading": "(Dp",
+      "text": "(Dp\nn EAGLES\nCOMMUNICATION ICT Solutions | Enterprise Solutions | Intelligent Technologies | Security and Systems Architecture",
+      "start_char": 6120,
+      "end_char": 6246
+    },
+    {
+      "id": "CL-034",
+      "heading": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | ",
+      "text": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | Outsourcing and Training",
+      "start_char": 6248,
+      "end_char": 6352
+    },
+    {
+      "id": "CL-035",
+      "heading": "(c) not copy, reduce to writing or otherwise record the Confidential Information",
+      "text": "(c) not copy, reduce to writing or otherwise record the Confidential Information except as strictly\nnecessary for the Purpose (and any such copies, reductions to writing and records shall be the\nproperty of the Disclosing Party); and",
+      "start_char": 6354,
+      "end_char": 6587
+    },
+    {
+      "id": "CL-036",
+      "heading": "(d) apply the same security measures and degree of care to the Confidential Info",
+      "text": "(d) apply the same security measures and degree of care to the Confidential Information as the\nRecipient applies to its own confidential information, which the Recipient warrants as providing\nadequate protection from unauthorised disclosure, copying or use.",
+      "start_char": 6589,
+      "end_char": 6846
+    },
+    {
+      "id": "CL-037",
+      "heading": "3. INDEMNITY",
+      "text": "3. INDEMNITY",
+      "start_char": 6848,
+      "end_char": 6860
+    },
+    {
+      "id": "CL-038",
+      "heading": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at",
+      "text": "The Recipient shall indemnify and keep fully indemnified the Disclosing Party at all times against all",
+      "start_char": 6862,
+      "end_char": 6964
+    },
+    {
+      "id": "CL-039",
+      "heading": "direct liabilities, costs (including legal costs on an indemnity basis), expense",
+      "text": "direct liabilities, costs (including legal costs on an indemnity basis), expenses, damages and losses and",
+      "start_char": 6966,
+      "end_char": 7071
+    },
+    {
+      "id": "CL-040",
+      "heading": "other reasonable costs and expenses suffered or incurred by the Disclosing Party",
+      "text": "other reasonable costs and expenses suffered or incurred by the Disclosing Party arising from any\nbreach of this Agreement by the Recipient or its Representatives.",
+      "start_char": 7073,
+      "end_char": 7236
+    },
+    {
+      "id": "CL-041",
+      "heading": "4, TERM AND TERMINATION",
+      "text": "4, TERM AND TERMINATION",
+      "start_char": 7238,
+      "end_char": 7261
+    },
+    {
+      "id": "CL-042",
+      "heading": "4.1. This Agreement shall continue in force for a period of five (5) years from ",
+      "text": "4.1. This Agreement shall continue in force for a period of five (5) years from the date of signing the\nAgreement unless terminated earlier in accordance with the provisions of clause 4.2.",
+      "start_char": 7263,
+      "end_char": 7451
+    },
+    {
+      "id": "CL-043",
+      "heading": "4.2. Any early termination of this Agreement shall be mutually agreed between th",
+      "text": "4.2. Any early termination of this Agreement shall be mutually agreed between the Parties. The obligations\nof each party as contained herein shall, notwithstanding any earlier termination of negotiations or\ndiscussions between the parties in relation to the Purpose, continue for a period of three (3) years from",
+      "start_char": 7453,
+      "end_char": 7765
+    },
+    {
+      "id": "CL-044",
+      "heading": "the termination or expiry of this Agreement.",
+      "text": "the termination or expiry of this Agreement.",
+      "start_char": 7767,
+      "end_char": 7811
+    },
+    {
+      "id": "CL-045",
+      "heading": "4.3. Termination of this Agreement shall not affect any accrued rights or remedi",
+      "text": "4.3. Termination of this Agreement shall not affect any accrued rights or remedies to which the Disclosing\nParty is entitled.",
+      "start_char": 7813,
+      "end_char": 7938
+    },
+    {
+      "id": "CL-046",
+      "heading": "4.4 Novariation of this Agreement shall be effective unless it is in writing and",
+      "text": "4.4 Novariation of this Agreement shall be effective unless it is in writing and signed by each of the parties\n(or their authorised representatives).",
+      "start_char": 7940,
+      "end_char": 8089
+    },
+    {
+      "id": "CL-047",
+      "heading": "5. ASSIGNMENT",
+      "text": "5. ASSIGNMENT\nExcept as otherwise provided in this Agreement, no party may assign, sub-contract or deal in any way\nwith, any of its rights or obligations under this Agreement or any document referred to in it.",
+      "start_char": 8091,
+      "end_char": 8300
+    },
+    {
+      "id": "CL-048",
+      "heading": "6. LIABILITY FOR BREACH OF CONTRACT",
+      "text": "6. LIABILITY FOR BREACH OF CONTRACT\nIf the \u201cCOMPANY or \u201cINDIVIDUAL / PERSON\" hereto breaches this Agreement, the \u201cCOMPANY or\n\u201cINDIVIDUAL / PERSON\" shall be legally liable for its breach of contract, and compensate ECC against\nits loss as a result of its breach of contract.",
+      "start_char": 8302,
+      "end_char": 8575
+    },
+    {
+      "id": "CL-049",
+      "heading": "7. NOTICES",
+      "text": "7. NOTICES",
+      "start_char": 8577,
+      "end_char": 8587
+    },
+    {
+      "id": "CL-050",
+      "heading": "7.1 Any notice required to be given under this Agreement, shall be in writing an",
+      "text": "7.1 Any notice required to be given under this Agreement, shall be in writing and shall be sent by commercial\ncourier or hand delivered to each party at its address specified above, or at such other address as",
+      "start_char": 8589,
+      "end_char": 8798
+    },
+    {
+      "id": "CL-051",
+      "heading": "otherwise specified by the relevant party by notice in writing to each other par",
+      "text": "otherwise specified by the relevant party by notice in writing to each other party, and be marked for the",
+      "start_char": 8800,
+      "end_char": 8905
+    },
+    {
+      "id": "CL-052",
+      "heading": "attention of that party's signatory to this Agreement.",
+      "text": "attention of that party's signatory to this Agreement.\n7.2 Any notice shall be deemed to have been duly received on the date and at the time that the courier's",
+      "start_char": 8907,
+      "end_char": 9066
+    },
+    {
+      "id": "CL-053",
+      "heading": "delivery receipt is signed or if hand delivered, when an acknowledgement of deli",
+      "text": "delivery receipt is signed or if hand delivered, when an acknowledgement of delivery is signed.",
+      "start_char": 9068,
+      "end_char": 9163
+    },
+    {
+      "id": "CL-054",
+      "heading": "fz",
+      "text": "fz\nFee. ECC | Eagles Communication Consultancy | Toll-Free: 800 963 963 | TelFax: +971 2 6393137 | P.O.Box: 129957\nAbu Dhabi, UAE e-Mail: cs@ECC.ae | URL: www.ECC.ae www.ECC.tel | Google Maps: www.location.ECC.ae",
+      "start_char": 9165,
+      "end_char": 9377
+    },
+    {
+      "id": "CL-055",
+      "heading": "(Dp",
+      "text": "(Dp\nn EAGLES a\nCOMMUNICATION ICT Solutions | Enterprise Solutions | Intelligent Technologies | Security and Systems Architecture",
+      "start_char": 9379,
+      "end_char": 9507
+    },
+    {
+      "id": "CL-056",
+      "heading": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | ",
+      "text": "CONSULTANCY Digital Consultancy | Cloud Technologies | Standardization and QA | Outsourcing and Training",
+      "start_char": 9509,
+      "end_char": 9613
+    },
+    {
+      "id": "CL-057",
+      "heading": "7.3 A notice or other communication required to be given under this Agreement sh",
+      "text": "7.3 A notice or other communication required to be given under this Agreement shall be considered valid\nonly if given by the authorized representatives of both Parties.",
+      "start_char": 9615,
+      "end_char": 9783
+    },
+    {
+      "id": "CL-058",
+      "heading": "8. GOVERNING LAW AND DisPUTE RESOLUTION",
+      "text": "8. GOVERNING LAW AND DisPUTE RESOLUTION",
+      "start_char": 9785,
+      "end_char": 9824
+    },
+    {
+      "id": "CL-059",
+      "heading": "8.1 This Agreement and any dispute or claim arising out of or in connection with",
+      "text": "8.1 This Agreement and any dispute or claim arising out of or in connection with it or its subject matter or\nformation (including non-contractual disputes or claims) shall be governed and construed in accordance\nwith the laws of the United Arab Emirates.",
+      "start_char": 9826,
+      "end_char": 10080
+    },
+    {
+      "id": "CL-060",
+      "heading": "8.2 All disputes or claims arising out of or in connection with this Agreement s",
+      "text": "8.2 All disputes or claims arising out of or in connection with this Agreement shall be finally settled by the\ncourts of the United Arab Emirates.",
+      "start_char": 10082,
+      "end_char": 10228
+    },
+    {
+      "id": "CL-061",
+      "heading": "8.3 INDIVIDUAL/ PERSON must attach scan copy of his / her passport and national ",
+      "text": "8.3 INDIVIDUAL/ PERSON must attach scan copy of his / her passport and national / resident Id or business",
+      "start_char": 10230,
+      "end_char": 10335
+    },
+    {
+      "id": "CL-062",
+      "heading": "trade license and notarized authorised signatory letter in case of COMPANY as pa",
+      "text": "trade license and notarized authorised signatory letter in case of COMPANY as part of this NDA.",
+      "start_char": 10337,
+      "end_char": 10432
+    },
+    {
+      "id": "CL-063",
+      "heading": "IN WITNESS WHEREOF, the Parties have caused this Agreement to be executed by the",
+      "text": "IN WITNESS WHEREOF, the Parties have caused this Agreement to be executed by their duly authorised\nrepresentatives:",
+      "start_char": 10434,
+      "end_char": 10549
+    },
+    {
+      "id": "CL-064",
+      "heading": "SIGNED FOR AND ON BEHALF OF",
+      "text": "SIGNED FOR AND ON BEHALF OF",
+      "start_char": 10551,
+      "end_char": 10578
+    },
+    {
+      "id": "CL-065",
+      "heading": "EAGLES COMMUNICATION CONSULTANCY COMPANY or INDIVIDUAL / PERSON",
+      "text": "EAGLES COMMUNICATION CONSULTANCY COMPANY or INDIVIDUAL / PERSON\nBy: MAHMOUD SAYED AHMAD. By:\nTitle: EXECUTIVE MANAGER Title:",
+      "start_char": 10580,
+      "end_char": 10704
+    },
+    {
+      "id": "CL-066",
+      "heading": "Eagles Communication Consultancy \u2014 ECC",
+      "text": "Eagles Communication Consultancy \u2014 ECC",
+      "start_char": 10706,
+      "end_char": 10744
+    },
+    {
+      "id": "CL-067",
+      "heading": "Legal. Dept.",
+      "text": "Legal. Dept.\nfz\nFee. ECC | Eagles Communication Consultancy | Toll-Free: 800 963 963 | TelFax: +971 2 6393137 | P.O.Box: 129957\nAbu Dhabi, UAE e-Mail: cs@ECC.ae | URL: www.ECC.ae www.ECC.tel | Google Maps: www.location.ECC.ae",
+      "start_char": 10746,
+      "end_char": 10971
+    }
+  ],
+  "paths": {
+    "report_json": "out/law_agent_platform/tenants/tenant_1/runs/20260306-093102/report.json",
+    "report_md": "out/law_agent_platform/tenants/tenant_1/runs/20260306-093102/report.md",
+    "run_dir": "out/law_agent_platform/tenants/tenant_1/runs/20260306-093102"
+  },
+  "run_id": "20260306-093102",
+  "input_name": "NDA - ECC.pdf",
+  "source_file_name": "NDA_-_ECC.pdf",
+  "source_file_path": "out/law_agent_platform/tenants/tenant_1/runs/20260306-093102/source_NDA_-_ECC.pdf",
+  "source_content_type": "application/pdf",
+  "completed_at": "2026-03-06T09:32:44.812111+00:00"
+}
